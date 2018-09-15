@@ -14,27 +14,9 @@ echo "                                                                 "
 echo " "
 
 HOST=""
-SERVER_PASSWORD=""
-USER=""
-HUB=""
-SE_PASSWORD=""
-
 HOST=${HOST}
-HUB=${HUB}
-USER_PASSWORD=${SERVER_PASSWORD}
-SE_PASSWORD=${SE_PASSWORD}
-
 echo -n "Enter Server IP: "
 read HOST
-echo -n "Set Virtual Hub: "
-read HUB
-echo -n "Set ${HUB} hub username: "
-read USER
-read -s -p "Set ${HUB} hub password: " SERVER_PASSWORD
-echo ""
-read -s -p "Set SE Server password: " SE_PASSWORD
-echo ""
-echo " "
 echo "Now sit back and wait until the installation finished."
 echo " "
 
@@ -97,36 +79,34 @@ iptables -A port-scanning -p tcp --tcp-flags SYN,ACK,FIN,RST RST -m limit --limi
 iptables -A port-scanning -j DROP
 
 HOST=${HOST}
-HUB_PASSWORD=${SE_PASSWORD}
-USER_PASSWORD=${SERVER_PASSWORD}
 
 TARGET="/usr/local/"
 
 sleep 2
-${TARGET}vpnserver/vpncmd localhost /SERVER /CMD ServerPasswordSet ${SE_PASSWORD}
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD HubCreate ${HUB} /PASSWORD:${HUB_PASSWORD}
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /HUB:${HUB} /CMD UserCreate ${USER} /GROUP:none /REALNAME:none /NOTE:none
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /HUB:${HUB} /CMD UserPasswordSet ${USER} /PASSWORD:${USER_PASSWORD}
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD IPsecEnable /L2TP:yes /L2TPRAW:yes /ETHERIP:no /PSK:vpn /DEFAULTHUB:${HUB}
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD HubDelete DEFAULT
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /HUB:${HUB} /CMD SecureNatEnable
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD VpnOverIcmpDnsEnable /ICMP:yes /DNS:yes
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD ListenerCreate 53
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD ListenerCreate 137
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD ListenerCreate 500
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD ListenerCreate 921
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD ListenerCreate 4500
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD ListenerCreate 4000
-${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:${SE_PASSWORD} /CMD ListenerCreate 40000
+${TARGET}vpnserver/vpncmd localhost /SERVER /CMD ServerPasswordSet qq1122ww
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD HubCreate dmVPN /PASSWORD:1111
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /HUB:dmVPN /CMD UserCreate qqqq /GROUP:none /REALNAME:none /NOTE:none
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /HUB:dmVPN /CMD UserPasswordSet qqqq /PASSWORD:1111
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD IPsecEnable /L2TP:yes /L2TPRAW:yes /ETHERIP:no /PSK:vpn /DEFAULTHUB:dmVPN
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD HubDelete DEFAULT
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /HUB:dmVPN /CMD SecureNatEnable
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD VpnOverIcmpDnsEnable /ICMP:yes /DNS:yes
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD ListenerCreate 53
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD ListenerCreate 137
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD ListenerCreate 500
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD ListenerCreate 921
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD ListenerCreate 4500
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD ListenerCreate 4000
+${TARGET}vpnserver/vpncmd localhost /SERVER /PASSWORD:qq1122ww /CMD ListenerCreate 40000
 clear
 echo "Softether server configuration has been done!"
 echo " "
 echo "Host: ${HOST}"
-echo "Virtual Hub: ${HUB}"
+echo "Virtual Hub: dmVPN"
 echo "Port: 443, 53, 137"
-echo "Username: ${USER}"
-echo "Password: ${SERVER_PASSWORD}"
-echo "Server Password: ${SE_PASSWORD}"
+echo "Username: qqqq"
+echo "Password: 1111"
+echo "Server Password: qq1122ww"
 echo " "
 echo "Join us in TD's Discord Server"
 echo "Invitation link: https://discord.gg/2BCNNYg"
