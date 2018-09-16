@@ -1,3 +1,9 @@
+#!/bin/bash
+clear
+echo " "
+echo " Squid Installer "
+echo " "
+
 # update
 apt-get -y update && apt-get -y upgrade
 
@@ -36,5 +42,6 @@ refresh_pattern . 0 20% 4320
 visible_hostname squid
 END
 service squid3 restart
+echo " "
 echo "Squid configuration completed!"
 echo " "
