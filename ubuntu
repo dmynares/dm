@@ -19,7 +19,7 @@ apt-get -y install nload
 
 #ssh
 sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
-sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 wget -O /etc/issue.net "https://raw.githubusercontent.com/dmynares/dm/master/banner"
 
 #squid
