@@ -33,7 +33,7 @@ echo "username:password" | sudo chpasswd
 
 #restart services
 service ssh restart
-service squid3 restart
+service squid restart
 
 #reboot
 echo "You need to [reboot] your server to complete this setup."
