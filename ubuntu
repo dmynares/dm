@@ -30,7 +30,7 @@ sed -i $MYIP2 /etc/squid/squid.conf
 #adduser
 sudo adduser username --gecos ",,," --disabled-password
 echo "username:password" | sudo chpasswd
-usermod -s /sbin/nologin username
+usermod -s /bin/false username
 
 #restart services
 service ssh restart
