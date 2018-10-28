@@ -1,16 +1,39 @@
 #!/bin/bash
 
+ipAddress=$(ip addr | grep 'inet' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | grep -o -E '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1)
+if [[ "$ipAddress" = "" ]]; then
+	ipAddress=$(wget -qO- ipv4.icanhazip.com)
+fi
+
+cd ~
+
 #update
 apt-get update
 apt-get -y upgrade
-apt-get -y install wget curl
+
+#install
+apt-get -y install wget
+apt-get -y install nano
+apt-get -y install build-essential
+apt-get -y install nload
 
 #ssh
-
+sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
+sed -i 's/PasswordAuthentication yes/PasswordAuthentication no/g' /etc/ssh/sshd_config
+wget -O /etc/issue.net "https://raw.githubusercontent.com/dmynares/dm/master/banner"
 
 #squid
 apt-get -y install squid3
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/dmynares/dm/master/squid.conf"
+sed -i $ipAddress /etc/squid/squid.conf
 
-#openvpn
+#adduser
+sudo adduser username --gecos ",,," --disabled-password
+echo "username:password" | sudo chpasswd
 
-#
+#restart services
+service ssh restart
+service squid3 restart
+
+#reboot
+echo "You need to [reboot] your server to complete this setup."
