@@ -40,7 +40,7 @@ rm -f ubuntu
 history -c
 
 #reboot
-echo "Server IP : $MYIP2"
+echo "Server IP : $MYIP"
 echo "SSH Port : 22"
 echo "Squid Proxy : 8080"
 echo "You need to [reboot] your server to complete this setup."
