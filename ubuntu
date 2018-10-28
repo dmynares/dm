@@ -17,6 +17,12 @@ apt-get -y install nano
 apt-get -y install build-essential
 apt-get -y install nload
 
+#dns
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+sed -i '$ i\echo "nameserver 8.8.8.8" > /etc/resolv.conf' /etc/rc.local
+sed -i '$ i\echo "nameserver 8.8.4.4" >> /etc/resolv.conf' /etc/rc.local
+
 #ssh
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
