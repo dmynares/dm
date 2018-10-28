@@ -12,7 +12,7 @@ apt-get update
 apt-get -y upgrade
 
 #install
-apt-get -y install wget
+apt-get -y install wget curl
 apt-get -y install nano
 apt-get -y install build-essential
 apt-get -y install nload
@@ -25,7 +25,7 @@ wget -O /etc/issue.net "https://raw.githubusercontent.com/dmynares/dm/master/ban
 #squid
 apt-get -y install squid3
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/dmynares/dm/master/squid.conf"
-sed -i $ipAddress /etc/squid/squid.conf
+sed -i 's/$ipAddress/$ipAddress/g' /etc/squid/squid.conf
 
 #adduser
 sudo adduser username --gecos ",,," --disabled-password
