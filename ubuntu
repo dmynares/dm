@@ -18,8 +18,9 @@ apt-get -y install build-essential
 apt-get -y install nload
 
 #ssh
-sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
+sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 wget -O /etc/issue.net "https://raw.githubusercontent.com/dmynares/dm/master/banner"
 
 #squid
@@ -33,15 +34,17 @@ echo "username:password" | sudo chpasswd
 usermod -s /bin/false username
 
 #restart services
-service ssh restart
+service sshd restart
 service squid restart
 
 clear
 rm -f ubuntu
 history -c
 
-#reboot
+#done
+echo ""
 echo "Server IP : $MYIP"
 echo "SSH Port : 22"
 echo "Squid Proxy : 8080"
+echo ""
 echo "You need to [reboot] your server to complete this setup."
