@@ -36,6 +36,7 @@ usermod -s /bin/false username
 service ssh restart
 service squid restart
 
+clear
 rm -f ubuntu
 history -c
 
