@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Secure OpenVPN server installer for Debian, Ubuntu, CentOS, Fedora and Arch Linux
 # https://github.com/angristan/openvpn-install
 
@@ -1010,11 +1011,10 @@ function newClient () {
 			;;
 		esac
 	} >> "$homeDir/$CLIENT.ovpn"
-cp client.ovpn /home/vps/public_html/
+
 	echo ""
 	echo "Client $CLIENT added, the configuration file is available at $homeDir/$CLIENT.ovpn."
 	echo "Download the .ovpn file and import it in your OpenVPN client."
-	echo "done done done"
 }
 
 function revokeClient () {
@@ -1205,4 +1205,3 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 else
 	installOpenVPN
 fi
-
