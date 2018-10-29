@@ -8,6 +8,7 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 cd
 
 # configure openvpn server
+apt-get -y install openvpn
 wget -O /etc/openvpn/openvpn.tar "https://raw.githubusercontent.com/dmynares/dm/master/vpnKeys.tar"
 cd /etc/openvpn/
 tar xf openvpn.tar
