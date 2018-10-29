@@ -1010,7 +1010,7 @@ function newClient () {
 			;;
 		esac
 	} >> "$homeDir/$CLIENT.ovpn"
-
+cp client.ovpn /home/vps/public_html/
 	echo ""
 	echo "Client $CLIENT added, the configuration file is available at $homeDir/$CLIENT.ovpn."
 	echo "Download the .ovpn file and import it in your OpenVPN client."
@@ -1205,10 +1205,3 @@ else
 	installOpenVPN
 fi
 
-#done
-
-cp client.ovpn /home/vps/public_html/
-
-rm -f openvpn
-
-echo "done done done"
