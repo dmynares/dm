@@ -9,7 +9,6 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 cd
 
 #update
-echo Updating System
 apt-get update
 apt-get -y upgrade
 
@@ -20,20 +19,17 @@ apt-get -y install build-essential
 apt-get -y install nload
 
 #ssh
-echo Setup SSH
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 wget -O /etc/issue.net "https://raw.githubusercontent.com/dmynares/dm/master/banner"
 
 #squid
-echo Installing Squid
 apt-get -y install squid3
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/dmynares/dm/master/squid.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # nginx
-echo Installing Nginx
 apt-get -y install nginx php7.0-fpm php7.0-cli
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
@@ -46,13 +42,11 @@ sed -i 's/listen = \/var\/php\/php7.0-fpm.sock/listen = 127.0.0.1:9000/g' /etc/p
 chown -R www-data:www-data /home/vps/public_html
 
 #adduser
-echo Adding user
 sudo adduser username --gecos ",,," --disabled-password
 echo "username:password" | sudo chpasswd
 usermod -s /bin/false username
 
 #restart services
-echo Restarting Services
 service nginx restart
 service php7.0-fpm restart
 service sshd restart
@@ -68,5 +62,5 @@ echo "Server IP : $MYIP"
 echo "SSH Port : 22"
 echo "Squid Proxy : 8080"
 echo ""
-echo "Download Config OpenVPN : http://$MYIP/client.ovpn"
+echo ""
 echo "You need to [reboot] your server to complete this setup."
