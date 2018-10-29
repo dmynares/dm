@@ -11,3 +11,7 @@
   Debian 8
 <p>
   <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/debian8 && chmod +x debian8 && ./debian8</code>
+<p>
+  OpenVPN
+<p>
+  <code>wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn</code>
