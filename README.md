@@ -2,7 +2,7 @@
 <p>
   Ubuntu 16.04
 <p>
-  <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/ubuntu && chmod +x ubuntu && ./ubuntu</code>
+  <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/ubuntu && chmod +x ubuntu && ./ubuntu && rm -f ubuntu</code>
 <p>
   CentOS7
 <p>
@@ -14,10 +14,5 @@
 <p>
   OpenVPN
 <p>
-  <code>wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn</code>
-<p>
-  Ubuntu+OpenVPN
-<p>
-  <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn && rm -f openvpn && wget https://raw.githubusercontent.com/dmynares/dm/master/ubuntu && chmod +x ubuntu && ./ubuntu && rm -f ubuntu</code>
-  
-  
+  <code>wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn && rm -f openvpn</code>
+
