@@ -21,3 +21,5 @@ sed -i $MYIP2 /etc/openvpn/client.ovpn
 cp client.ovpn /home/vps/public_html/
 
 rm -f openvpn
+
+echo "done"
