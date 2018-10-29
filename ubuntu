@@ -10,6 +10,7 @@ cd
 
 #update
 apt-get update
+apt-get -y upgrade
 
 #install
 apt-get -y install nano
