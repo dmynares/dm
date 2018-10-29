@@ -21,12 +21,6 @@ apt-get -y install build-essential
 apt-get -y install nload
 clear
 
-#dns
-echo Setup DNS
-echo "nameserver 8.8.8.8" > /etc/resolv.conf
-echo "nameserver 8.8.4.4" >> /etc/resolv.conf
-clear
-
 #ssh
 echo Setup SSH
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
@@ -52,7 +46,7 @@ mkdir -p /home/vps/public_html
 echo "<pre>Hello World :)</pre>" > /home/vps/public_html/index.html
 echo "<?php phpinfo(); ?>" > /home/vps/public_html/info.php
 wget -O /etc/nginx/conf.d/domain.conf "https://raw.githubusercontent.com/dmynares/dm/master/domain.conf"
-sed -i 's/listen = \/var\/run\/php7.0-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php/7.0/fpm/pool.d/www.conf
+sed -i 's/listen = \/var\/php\/php7.0-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php/7.0/fpm/pool.d/www.conf
 chown -R www-data:www-data /home/vps/public_html
 clear
 
