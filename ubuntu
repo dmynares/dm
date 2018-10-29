@@ -10,11 +10,10 @@ cd
 
 #update
 apt-get update
-apt-get -y upgrade
 
 #install
-echo Installing Apps
 apt-get -y install nano
+apt-get -y install zlib1g-dev
 apt-get -y install build-essential
 apt-get -y install nload
 
@@ -30,7 +29,10 @@ wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/dmynares/dm/mas
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # nginx
-apt-get -y install nginx php7.0-fpm php7.0-cli
+apt-get -y install nginx
+apt-get -y install php7.0-fpm
+apt-get -y install php7.0-cli
+
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/dmynares/dm/master/nginx.conf"
@@ -47,14 +49,13 @@ echo "username:password" | sudo chpasswd
 usermod -s /bin/false username
 
 #restart services
+service sshd restart
 service nginx restart
 service php7.0-fpm restart
-service sshd restart
 service squid restart
 service openvpn restart
 
 rm -f ubuntu
-history -c
 
 #done
 echo "Installation completed successfully!"
