@@ -18,6 +18,6 @@
 <p>
   Ubuntu+OpenVPN
 <p>
-  <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn && wget https://raw.githubusercontent.com/dmynares/dm/master/ubuntu && chmod +x ubuntu && ./ubuntu</code>
+  <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn && rm -f openvpn && wget https://raw.githubusercontent.com/dmynares/dm/master/ubuntu && chmod +x ubuntu && ./ubuntu && rm -f ubuntu</code>
   
   
