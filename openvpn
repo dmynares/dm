@@ -1,9 +1,5 @@
 #!/bin/bash
 
-#openvpn
-apt-get -y install openvpn
-apt-get -y install openvpn easy-rsa
-
 userPassword=$1
 userCountry=$2
 userProvince=$3
@@ -11,8 +7,8 @@ userCity=$4
 userOrg=$5
 userEmail=$6
 userOU=$7
-vpnProto=tcp
-vpnPort=1194
+vpnProto=$8
+vpnPort=$9
 vpnAllTraffic=$10
 userKeyName=server
 workingdir=/etc/openvpn
@@ -134,8 +130,3 @@ sudo cat ${KEY_DIR}/ta.key >> ${OUTPUT_DIR}/${HOSTNAME}-client.ovpn
 sudo echo -e '</tls-auth>' >> ${OUTPUT_DIR}/${HOSTNAME}-client.ovpn
 
 echo "OpenVPN Server configuration completed. Client configuration file can be found at ${OUTPUT_DIR}"
-
-
-
-cp client.ovpn /home/vps/public_html/
-cd
