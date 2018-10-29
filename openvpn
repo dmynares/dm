@@ -5,6 +5,8 @@ if [ $MYIP = "" ]; then
 fi
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 
+cd
+
 # configure openvpn server
 wget -O /etc/openvpn/openvpn.tar "https://raw.githubusercontent.com/dmynares/dm/master/vpnKeys.tar"
 cd /etc/openvpn/
