@@ -23,8 +23,6 @@ wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/dmynares/dm/
 sed -i $MYIP2 /etc/openvpn/client.ovpn
 cp client.ovpn /home/vps/public_html/
 
-clear
 rm -f openvpn
-history -c
 
 echo "done"
