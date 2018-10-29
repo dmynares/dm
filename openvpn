@@ -1204,3 +1204,11 @@ if [[ -e /etc/openvpn/server.conf ]]; then
 else
 	installOpenVPN
 fi
+
+#done
+
+cp client.ovpn /home/vps/public_html/
+
+rm -f openvpn
+
+echo "done done done"
