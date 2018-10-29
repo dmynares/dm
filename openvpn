@@ -1,5 +1,6 @@
 #!/bin/bash
 
+MYIP=$(curl -4 icanhazip.com)
 if [ $MYIP = "" ]; then
    MYIP=`ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}' | head -1`;
 fi
@@ -23,6 +24,8 @@ wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/dmynares/dm/
 sed -i $MYIP2 /etc/openvpn/client.ovpn
 cp client.ovpn /home/vps/public_html/
 
+clear
 rm -f openvpn
+history -c
 
 echo "done"
