@@ -9,48 +9,70 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 cd
 
 #update
+echo Updating System
 apt-get update
 apt-get -y upgrade
 
 #install
+echo Installing Apps
 apt-get -y install nano
 apt-get -y install build-essential
 apt-get -y install nload
 
 #dns
-echo "nameserver 1.1.1.1" > /etc/resolv.conf
-echo "nameserver 1.0.0.1" >> /etc/resolv.conf
-sed -i '$ i\echo "nameserver 1.1.1.1" > /etc/resolv.conf' /etc/rc.local
-sed -i '$ i\echo "nameserver 1.0.0.1" >> /etc/resolv.conf' /etc/rc.local
+echo Setup DNS
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
 #ssh
+echo Setup SSH
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 wget -O /etc/issue.net "https://raw.githubusercontent.com/dmynares/dm/master/banner"
 
 #squid
+echo Installing Squid
 apt-get -y install squid3
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/dmynares/dm/master/squid.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
+# nginx
+echo Installing Nginx
+apt-get -y install nginx php7.0-fpm php7.0-cli
+rm /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-available/default
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/dmynares/dm/master/nginx.conf"
+mkdir -p /home/vps/public_html
+echo "<pre>Hello World :)</pre>" > /home/vps/public_html/index.html
+echo "<?php phpinfo(); ?>" > /home/vps/public_html/info.php
+wget -O /etc/nginx/conf.d/domain.conf "https://raw.githubusercontent.com/dmynares/dm/master/domain.conf"
+sed -i 's/listen = \/var\/run\/php7.0-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php/7.0/fpm/pool.d/www.conf
+chown -R www-data:www-data /home/vps/public_html
+
 #adduser
+echo Adding user
 sudo adduser username --gecos ",,," --disabled-password
 echo "username:password" | sudo chpasswd
 usermod -s /bin/false username
 
 #restart services
+echo Restarting Services
+service nginx start
+service php7.0-fpm start
 service sshd restart
 service squid restart
+service openvpn restart
 
 clear
 rm -f ubuntu
 history -c
 
 #done
-echo ""
+echo "Installation completed successfully!"
 echo "Server IP : $MYIP"
 echo "SSH Port : 22"
 echo "Squid Proxy : 8080"
 echo ""
+echo "Download Config OpenVPN : http://$MYIP/client.ovpn"
 echo "You need to [reboot] your server to complete this setup."
