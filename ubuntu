@@ -53,8 +53,8 @@ usermod -s /bin/false username
 
 #restart services
 echo Restarting Services
-service nginx start
-service php7.0-fpm start
+service nginx restart
+service php7.0-fpm restart
 service sshd restart
 service squid restart
 service openvpn restart
