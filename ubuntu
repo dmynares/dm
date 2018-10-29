@@ -49,9 +49,6 @@ sudo adduser username --gecos ",,," --disabled-password
 echo "username:password" | sudo chpasswd
 usermod -s /bin/false username
 
-# openvpn
-wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn && rm -f openvpn
-
 #restart services
 service sshd restart
 service squid restart
