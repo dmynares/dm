@@ -1,8 +1,8 @@
 <ul>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;sudo su - root&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">sudo su - root</span></li>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;sudo su - root&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">apt-get update &amp;&amp; apt-get install wget nano build-essential -y</span></li>
-<li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;sudo su - root&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.28-9669-beta/softether-vpnserver-v4.28-9669-beta-2018.09.11-linux-x64-64bit.tar.gz</span></li>
-<li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;sudo su - root&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">tar xzvf softether-vpnserver-v4.28-9669-beta-2018.09.11-linux-x64-64bit.tar.gz</span></li>
+<li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;sudo su - root&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">wget <strong>https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.28-9669-beta/softether-vpnserver-v4.28-9669-beta-2018.09.11-linux-x64-64bit.tar.gz</strong></span></li>
+<li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;sudo su - root&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">tar xzvf <strong>softether-vpnserver-v4.28-9669-beta-2018.09.11-linux-x64-64bit.tar.gz</strong></span></li>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;sudo su - root&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">cd vpnserver</span></li>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;sudo su - root&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">make</span></li>
 </ul>
