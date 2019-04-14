@@ -8,23 +8,23 @@ MYIP2="s/xxxxxxxxx/$MYIP/g";
 
 cd
 
-#update
+# update
 apt-get update
 apt-get -y upgrade
 
-#install
+# install
 apt-get -y install nano
 apt-get -y install zlib1g-dev
 apt-get -y install build-essential
 apt-get -y install nload
 
-#ssh
+# ssh
 sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
 sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
 sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 wget -O /etc/issue.net "https://raw.githubusercontent.com/dmynares/dm/master/banner"
 
-#squid
+# squid
 apt-get -y install squid3
 wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/dmynares/dm/master/squid.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
@@ -44,12 +44,12 @@ wget -O /etc/nginx/conf.d/domain.conf "https://raw.githubusercontent.com/dmynare
 sed -i 's/listen = \/var\/php\/php7.0-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php/7.0/fpm/pool.d/www.conf
 chown -R www-data:www-data /home/vps/public_html
 
-#adduser
-#user1 for ssh username:password
+# adduser
+# user1 for ssh
 sudo adduser username --gecos ",,," --disabled-password
 echo "username:password" | sudo chpasswd
 usermod -s /bin/false username
-#user2 for ssl sslusername:sslpassword
+# user2 for ssl
 sudo adduser sslusername --gecos ",,," --disabled-password
 echo "sslusername:sslpassword" | sudo chpasswd
 
@@ -65,7 +65,6 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=442/g' /etc/default/dropbear
-/etc/init.d/dropbear start
 
 #restart services
 service sshd restart
