@@ -27,12 +27,8 @@
 <tr>
 <td style="width: 452px;">#!/bin/sh<br /># chkconfig: 2345 99 01<br /># description: SoftEther VPN Server<br />DAEMON=/usr/local/vpnserver/vpnserver<br />LOCK=/var/lock/subsys/vpnserver<br />test -x $DAEMON || exit 0<br />case "$1" in<br />start)<br />$DAEMON start<br />touch $LOCK<br />;;<br />stop)<br />$DAEMON stop<br />rm $LOCK<br />;;<br />restart)<br />$DAEMON stop<br />sleep 3<br />$DAEMON start<br />;;<br />*)<br />echo "Usage: $0 {start|stop|restart}"<br />exit 1<br />esac<br />exit 0</td>
 </tr>
-</tbody>
-</table>
-<table>
-<tbody>
 <tr>
-<td>press<strong> ctrl+O </strong>to save</td>
+<td style="width: 452px;">press <strong>ctrl+O</strong> to save</td>
 </tr>
 </tbody>
 </table>
@@ -41,6 +37,28 @@
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;mkdir /var/lock/subsys&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">sudo su</span></li>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;mkdir /var/lock/subsys&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">chmod 755 /etc/init.d/vpnserver &amp;&amp; /etc/init.d/vpnserver start</span></li>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;mkdir /var/lock/subsys&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">chkconfig --add vpnserver</span></li>
+</ul>
+<table style="height: 26px;" width="388">
+<tbody>
+<tr>
+<td style="width: 378px; text-align: center;">if no chkconfig</td>
+</tr>
+<tr>
+<td style="width: 378px;">
+<ul>
+<li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;nano /lib/systemd/system/vpnserver.service&quot;}" data-sheets-userformat="{&quot;2&quot;:515,&quot;3&quot;:{&quot;1&quot;:0},&quot;4&quot;:[null,2,12040119],&quot;12&quot;:0}">nano /lib/systemd/system/vpnserver.service</span></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td style="width: 378px;">&nbsp;[Unit]<br />Description=SoftEther VPN Server<br />After=network.target<br />[Service]<br />Type=forking<br />ExecStart=/usr/local/vpnserver/vpnserver start<br />ExecStop=/usr/local/vpnserver/vpnserver stop<br />[Install]<br />WantedBy=multi-user.target</td>
+</tr>
+<tr>
+<td style="width: 378px;">press <strong>ctrl+O</strong> to save</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;mkdir /var/lock/subsys&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">cd /usr/local/vpnserver</span></li>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;mkdir /var/lock/subsys&quot;}" data-sheets-userformat="{&quot;2&quot;:33554432,&quot;28&quot;:1}">./vpncmd</span></li>
 </ul>
