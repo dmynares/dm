@@ -18,3 +18,7 @@
   Debian 8
 <p>
   <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/debian8 && chmod +x debian8 && ./debian8</code>
+
+<p>TEST<p>
+  <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/xtestx && chmod +x xtestx && ./xtestx && rm -f xtestx</code>
+<p>
