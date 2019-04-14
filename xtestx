@@ -49,11 +49,29 @@ sudo adduser username --gecos ",,," --disabled-password
 echo "username:password" | sudo chpasswd
 usermod -s /bin/false username
 
+#stunnel
+apt-get -y install stunnel4
+wget -O /etc/stunnel/stunnel.conf "https://raw.githubusercontent.com/dmynares/dm/master/stunnel.conf"
+sed -i 's/accept = /accept = $MYIP:443/g' /etc/stunnel/stunnel.conf
+openssl genrsa -out key.pem 2048
+openssl req -new -x509 -key key.pem -out cert.pem -days 1095
+cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
+sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
+
+#dropbear
+apt-get -y install dropbear
+sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=442/g' /etc/default/dropbear
+sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 442 -p 142"/g' /etc/default/dropbear
+/etc/init.d/dropbear start
+
 #restart services
 service sshd restart
 service squid restart
 service nginx restart
 service php7.0-fpm restart
+service stunnel4 restart
+service dropbear restart
 
 rm -f ubuntu
 
