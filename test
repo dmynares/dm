@@ -1,0 +1,67 @@
+#!/bin/bash
+
+MYIP=$(curl -4 icanhazip.com)
+if [ $MYIP = "" ]; then
+   MYIP=`ifconfig | grep 'inet addr:' | grep -v inet6 | grep -vE '127\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | cut -d: -f2 | awk '{ print $1}' | head -1`;
+fi
+MYIP2="s/xxxxxxxxx/$MYIP/g";
+
+cd
+
+#update
+apt-get update
+apt-get -y upgrade
+
+#install
+apt-get -y install nano
+apt-get -y install zlib1g-dev
+apt-get -y install build-essential
+apt-get -y install nload
+
+#ssh
+sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/g' /etc/ssh/sshd_config
+sed -i 's/#Banner/Banner/g' /etc/ssh/sshd_config
+sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
+wget -O /etc/issue.net "https://raw.githubusercontent.com/dmynares/dm/master/banner"
+
+#squid
+apt-get -y install squid3
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/dmynares/dm/master/squid.conf"
+sed -i $MYIP2 /etc/squid/squid.conf
+
+# nginx
+apt-get -y install nginx
+apt-get -y install php7.0-fpm
+apt-get -y install php7.0-cli
+
+rm /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-available/default
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/dmynares/dm/master/nginx.conf"
+mkdir -p /home/vps/public_html
+echo "<h1><center><a href="/client.ovpn">Download OpenVPN Config</a></center></h1>" > /home/vps/public_html/index.html
+echo "<?php phpinfo(); ?>" > /home/vps/public_html/info.php
+wget -O /etc/nginx/conf.d/domain.conf "https://raw.githubusercontent.com/dmynares/dm/master/domain.conf"
+sed -i 's/listen = \/var\/php\/php7.0-fpm.sock/listen = 127.0.0.1:9000/g' /etc/php/7.0/fpm/pool.d/www.conf
+chown -R www-data:www-data /home/vps/public_html
+
+#adduser
+sudo adduser username --gecos ",,," --disabled-password
+echo "username:password" | sudo chpasswd
+usermod -s /bin/false username
+
+#restart services
+service sshd restart
+service squid restart
+service nginx restart
+service php7.0-fpm restart
+
+rm -f ubuntu
+
+#done
+echo "Installation completed successfully!"
+echo "Server IP : $MYIP"
+echo "SSH Port : 22"
+echo "Squid Proxy : 8080"
+echo ""
+echo ""
+echo "You need to [reboot] your server to complete this setup."
