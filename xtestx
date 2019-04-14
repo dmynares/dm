@@ -45,9 +45,13 @@ sed -i 's/listen = \/var\/php\/php7.0-fpm.sock/listen = 127.0.0.1:9000/g' /etc/p
 chown -R www-data:www-data /home/vps/public_html
 
 #adduser
+#user1 for ssh username:password
 sudo adduser username --gecos ",,," --disabled-password
 echo "username:password" | sudo chpasswd
 usermod -s /bin/false username
+#user2 for ssl sslusername:sslpassword
+sudo adduser sslusername --gecos ",,," --disabled-password
+echo "sslusername:sslpassword" | sudo chpasswd
 
 #stunnel
 apt-get -y install stunnel4
