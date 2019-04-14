@@ -1,11 +1,11 @@
-sudo su - root
-apt-get update && apt-get install wget nano build-essential -y
-wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.28-9669-beta/softether-vpnserver-v4.28-9669-beta-2018.09.11-linux-x64-64bit.tar.gz
-tar xzvf softether-vpnserver-v4.28-9669-beta-2018.09.11-linux-x64-64bit.tar.gz
-cd vpnserver
-make
+sudo su - root<br/>
+apt-get update && apt-get install wget nano build-essential -y<br/>
+wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.28-9669-beta/softether-vpnserver-v4.28-9669-beta-2018.09.11-linux-x64-64bit.tar.gz<br/>
+tar xzvf softether-vpnserver-v4.28-9669-beta-2018.09.11-linux-x64-64bit.tar.gz<br/>
+cd vpnserver<br/>
+make<br/>
 <code>select 1,1,1</code>
-cd ..
+cd ..<br/>
 mv vpnserver /usr/local
 cd /usr/local/vpnserver/
 chmod 600 *
