@@ -34,11 +34,6 @@ cd /usr/local/vpnserver
 /usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /HUB:vpn /CMD SecureNatEnable
 /usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /CMD VpnOverIcmpDnsEnable /ICMP:yes /DNS:yes
 echo ---------------------------------------------
-echo  -e "\033[32;5mVPN SERVER INSTALLED SUCCESSFULLY!\033[0m"
-echo "vpncmd is at /usr/local/vpnserver"
-echo ---------------Commands----------------------
-echo /etc/init.d/vpnserver start - to start
-echo /etc/init.d/vpnserver restart - to restart
-echo /etc/init.d/vpnserver stop - to stop
+echo  -e "\033[32;5mSOFTETHER INSTALLED SUCCESSFULLY!\033[0m"
 echo ---------------------------------------------
 #End of script
