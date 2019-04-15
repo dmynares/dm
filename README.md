@@ -6,7 +6,7 @@
 <p>
   OpenVPN
 <p>
-  <code>wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn && rm -f openvpn && cp client.ovpn /home/vps/public_html/</code>
+  <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn && rm -f openvpn && cp client.ovpn /home/vps/public_html/</code>
 <p>
   SoftEther
 <p> 
