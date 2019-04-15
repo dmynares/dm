@@ -30,6 +30,9 @@
 <tr>
 <td style="width: 452px;">press <strong>ctrl+O</strong> to save</td>
 </tr>
+<tr>
+<td style="width: 452px;">press <strong>ctrl+X</strong> to exit</td>
+</tr>
 </tbody>
 </table>
 <ul>
@@ -56,6 +59,9 @@
 <tr>
 <td style="width: 378px;">press <strong>ctrl+O</strong> to save</td>
 </tr>
+<tr>
+<td style="width: 378px;">press <strong>ctrl+X</strong> to exit</td>
+</tr>
 </tbody>
 </table>
 <ul>
@@ -74,6 +80,9 @@
 <tbody>
 <tr>
 <td>input VPS IP adress ex: <strong>127.0.0.1</strong></td>
+</tr>
+<tr>
+<td>press <strong>Enter</strong> without inputting anything.</td>
 </tr>
 </tbody>
 </table>
@@ -101,6 +110,15 @@
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Hub vpn&quot;}" data-sheets-userformat="{&quot;2&quot;:33554945,&quot;3&quot;:{&quot;1&quot;:0},&quot;12&quot;:0,&quot;28&quot;:1}">Hub <strong>vpn</strong></span></li>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Hub vpn&quot;}" data-sheets-userformat="{&quot;2&quot;:33554945,&quot;3&quot;:{&quot;1&quot;:0},&quot;12&quot;:0,&quot;28&quot;:1}">SecureNatEnable</span></li>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Hub vpn&quot;}" data-sheets-userformat="{&quot;2&quot;:33554945,&quot;3&quot;:{&quot;1&quot;:0},&quot;12&quot;:0,&quot;28&quot;:1}">UserCreate <strong>vpn</strong></span></li>
+</ul>
+<table style="height: 28px;" width="157">
+<tbody>
+<tr>
+<td style="width: 147px;">press <strong>Enter </strong>3 times</td>
+</tr>
+</tbody>
+</table>
+<ul>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Hub vpn&quot;}" data-sheets-userformat="{&quot;2&quot;:33554945,&quot;3&quot;:{&quot;1&quot;:0},&quot;12&quot;:0,&quot;28&quot;:1}">UserPasswordSet <strong>vpn</strong></span></li>
 </ul>
 <table>
@@ -126,5 +144,3 @@
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Hub vpn&quot;}" data-sheets-userformat="{&quot;2&quot;:33554945,&quot;3&quot;:{&quot;1&quot;:0},&quot;12&quot;:0,&quot;28&quot;:1}">cd</span></li>
 <li><span data-sheets-value="{&quot;1&quot;:2,&quot;2&quot;:&quot;Hub vpn&quot;}" data-sheets-userformat="{&quot;2&quot;:33554945,&quot;3&quot;:{&quot;1&quot;:0},&quot;12&quot;:0,&quot;28&quot;:1}">/etc/init.d/vpnserver restart</span></li>
 </ul>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
