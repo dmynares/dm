@@ -27,6 +27,14 @@ chmod 755 /etc/init.d/vpnserver
 update-rc.d vpnserver defaults
 /etc/init.d/vpnserver start
 cd /usr/local/vpnserver
+/usr/local/vpnserver/vpncmd localhost:5555 /SERVER /CMD ServerPasswordSet vpn
+/usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /CMD HubCreate vpn /PASSWORD:vpn
+/usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /HUB:vpn /CMD UserCreate vpn /GROUP:none /REALNAME:none /NOTE:none
+/usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /HUB:vpn /CMD UserPasswordSet vpn /PASSWORD:vpn
+/usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /CMD IPsecEnable /L2TP:yes /L2TPRAW:yes /ETHERIP:yes /PSK:vpn /DEFAULTHUB:vpn
+/usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /CMD HubDelete DEFAULT
+/usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /HUB:vpn /CMD SecureNatEnable
+/usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /CMD VpnOverIcmpDnsEnable /ICMP:yes /DNS:yes
 echo ---------------------------------------------
 echo  -e "\033[32;5mVPN SERVER INSTALLED SUCCESSFULLY!\033[0m"
 echo "vpncmd is at /usr/local/vpnserver"
