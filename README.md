@@ -6,11 +6,11 @@
 <p>
   OpenVPN
 <p>
-  <code>wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn && rm -f openvpn && cp client.ovpn /home/vps/public_html/</code><p>
-<br/><br/><br/><br/><br/>
-  CentOS7
+  <code>wget https://raw.githubusercontent.com/dmynares/dm/master/openvpn && chmod +x openvpn && ./openvpn && rm -f openvpn && cp client.ovpn /home/vps/public_html/</code>
+<p>
+  SoftEther
 <p> 
-<code>yum -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/centos7 && chmod +x centos7 && ./centos7</code>
+<code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/softether && chmod +x softether && ./softether && rm -f softether</code>
 
 <p>TEST<p>
   <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/xtestx && chmod +x xtestx && ./xtestx && rm -f xtestx</code>
