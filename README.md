@@ -14,10 +14,6 @@
   CentOS7
 <p> 
 <code>yum -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/centos7 && chmod +x centos7 && ./centos7</code>
-<p>
-  Debian 8
-<p>
-  <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/debian8 && chmod +x debian8 && ./debian8</code>
 
 <p>TEST<p>
   <code>apt-get -y install wget curl && wget https://raw.githubusercontent.com/dmynares/dm/master/xtestx && chmod +x xtestx && ./xtestx && rm -f xtestx</code>
