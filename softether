@@ -25,11 +25,7 @@ chmod 755 /etc/init.d/vpnserver
 update-rc.d vpnserver defaults
 /etc/init.d/vpnserver start
 cd /usr/local/vpnserver
-SE_PASSWORD=""
-SE_PASSWORD=${SE_PASSWORD}
-read -s -p "Set SE Server password: " SE_PASSWORD
-echo ""
-/usr/local/vpnserver/vpncmd localhost:5555 /SERVER /CMD ServerPasswordSet ${SE_PASSWORD}
+expect -c 'spawn /usr/local/vpnserver/vpncmd localhost:5555 /SERVER /CMD ServerPasswordSet; expect "Password:"; send "vpn\r"; interact'
 /usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /CMD HubCreate vpn /PASSWORD:vpn
 /usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /HUB:vpn /CMD UserCreate vpn /GROUP:none /REALNAME:none /NOTE:none
 /usr/local/vpnserver/vpncmd localhost:5555 /SERVER /PASSWORD:vpn /HUB:vpn /CMD UserPasswordSet vpn /PASSWORD:vpn
