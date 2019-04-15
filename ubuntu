@@ -79,10 +79,11 @@ rm -f ubuntu
 
 #done
 echo "Installation completed successfully!"
+echo ""
 echo "Server IP : $MYIP"
 echo "SSH Port : 22"
 echo "Squid Proxy : 8080"
 echo "Dropbear : 442"
-echo "Stunnel : 443"
+echo "SSL Port : 443"
 echo ""
 echo "You need to [reboot] your server to complete this setup."
