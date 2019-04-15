@@ -23,7 +23,6 @@ chmod 700 vpnserver
 chmod 700 vpncmd
 wget -O /etc/init.d/vpnserver "https://raw.githubusercontent.com/dmynares/dm/master/softether.conf"
 mkdir /var/lock/subsys
-sudo su
 chmod 755 /etc/init.d/vpnserver
 update-rc.d vpnserver defaults
 /etc/init.d/vpnserver start
