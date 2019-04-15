@@ -65,6 +65,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 apt-get -y install dropbear
 sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
 sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=442/g' /etc/default/dropbear
+sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 #restart services
 echo "restarting services..."
@@ -83,10 +84,10 @@ echo  -e "\033[32;5mInstallation completed successfully!!\033[0m"
 echo ---------------------------------------------
 echo ""
 echo "Server IP : $MYIP"
-echo "SSH Port : 22"
+echo "OpenSSH : 22"
 echo "Squid Proxy : 8080"
 echo "Dropbear : 442"
-echo "SSL Port : 443"
+echo "Stunnel : 443"
 echo ""
 echo "You need to [reboot] your server to complete this setup."
 echo ""
