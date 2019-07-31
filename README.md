@@ -24,22 +24,22 @@ recovery > boot from recovery iso
 console
 ssh to rdp ip
   
-  #	Install
+  Install
 		
 	>	screen
 	>	6
   
   Windows 2016 Datacenter
 
- # wget -O- https://bit.ly/2yGVqyH | gunzip | dd of=/dev/vda 
+  wget -O- https://bit.ly/2yGVqyH | gunzip | dd of=/dev/vda 
   
   Windows 2012 Datacenter
 
- # wget -O- https://bit.ly/2LreJUr | gunzip | dd of=/dev/vda
+  wget -O- https://bit.ly/2LreJUr | gunzip | dd of=/dev/vda
 
   Windows 10 
 
- # wget -O- https://bit.ly/2LatCvb | gunzip | dd of=/dev/vda
+  wget -O- https://bit.ly/2LatCvb | gunzip | dd of=/dev/vda
  
  Administrator
  P@ssword64
