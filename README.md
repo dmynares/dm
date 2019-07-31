@@ -20,7 +20,6 @@
 # Windows RDP
 <p>
 	
-<code>
 create droplet
 	
 check ipv6, monitoring
@@ -29,7 +28,7 @@ recovery > boot from recovery iso
 
 console
 	
-ssh to rdp ip
+ssh to droplet ip
   
   Install
 		
