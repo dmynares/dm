@@ -21,11 +21,15 @@
 <p>
 	
 <code>
->	create droplet
->	check ipv6, monitoring
->	recovery > boot from recovery iso
->	console
->	ssh to rdp ip
+create droplet
+	
+check ipv6, monitoring
+	
+recovery > boot from recovery iso
+
+console
+	
+ssh to rdp ip
   
   Install
 		
